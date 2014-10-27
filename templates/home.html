@@ -20,25 +20,15 @@
                         {% else %}
                     <div class="item">
                         {% endif %}
-                        <img class="img-responsive"
+                        <img class="img-responsive" style="max-height: 500px;
+                        width: auto; margin: 0 auto"
                         src="{{feature.product.photo.url}}" alt="Responsive image">
                         <div class="carousel-caption">
-                            <h3>{{feature.caption}}</h3>
+                            <h1>{{feature.product.name}}</h1>
+                            <p>{{feature.product.description}}</p>
                         </div>
                     </div>
                     {% endfor %}
-                    <div class="item">
-                        <img class="img-responsive" src="http://placehold.it/1200x315" alt="Responsive image">
-                        <div class="carousel-caption">
-                            <h3>Caption Text</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="http://placehold.it/1200x315" alt="Responsive image">
-                        <div class="carousel-caption">
-                            <h3>Caption Text</h3>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- Controls -->
