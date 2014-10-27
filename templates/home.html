@@ -14,12 +14,19 @@
      
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
+                    {% for feature in featured_products %}
+                        {% if forloop.first %}
                     <div class="item active">
-                        <img class="img-responsive" src="http://placehold.it/1200x315" alt="Responsive image">
+                        {% else %}
+                    <div class="item">
+                        {% endif %}
+                        <img class="img-responsive"
+                        src="{{feature.product.photo.url}}" alt="Responsive image">
                         <div class="carousel-caption">
-                            <h3>Caption Text</h3>
+                            <h3>{{feature.caption}}</h3>
                         </div>
                     </div>
+                    {% endfor %}
                     <div class="item">
                         <img class="img-responsive" src="http://placehold.it/1200x315" alt="Responsive image">
                         <div class="carousel-caption">
@@ -47,9 +54,7 @@
         <div class="col-md-4">
             <div class="well">
                 Quiero subscribirme!
-            </div>
-            <div class="well">
-                Quisiera probar primero
+                {{ form }}
             </div>
         </div>
     </div>

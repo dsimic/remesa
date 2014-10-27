@@ -37,8 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # local apps
-    'remesa',
     'catalogue',
+    'remesa',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,12 +85,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
-
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, '/static'),)
+MEDIA_URL = '/media/'
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
