@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # local apps
+    'remesa',
     'catalogue',
 )
 
@@ -84,4 +85,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
+
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, '/static'),)
+
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+)
