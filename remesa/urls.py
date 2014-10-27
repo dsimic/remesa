@@ -9,6 +9,7 @@ urlpatterns = patterns(
     # url(r'^$', 'remesa.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', 'remesa.views.home', name='home'),
+    url(r'^products/', 'remesa.views.products', name='products'),
     url(r'^admin/', include(admin.site.urls)),
 )
 
