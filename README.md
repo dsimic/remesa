@@ -1,4 +1,4 @@
 remesa
 ===========
 
-Flask site for a simple store.
+Django site for a simple store.
