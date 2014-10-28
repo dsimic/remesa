@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+
+    <div class="row" style="margin-bottom: 20px">
+        <a href="{% url 'products' %}" style="color:grey; font-size:small;">&lt; Back to catalogue</a>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{object.photo.url}}" alt="{{object.name}} image" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+            <h2>{{object.name}}</h2>
+            <p>Price: <span class="product-price">${{object.price_in_cop}}.000
+                COP</span></p>
+            <p>
+            {% if object.outofstock %}
+            <span class="product-outofstock">Out of Stock</span>
+            {% elif object.runningout %}
+            <span class="product-runningout">Only {{object.stockleft}}
+                left!</span>
+            {% else %}
+            <span class="product-instock">In Stock</span>
+            {% endif %}
+            </p>
+            <p> {{object.description}}</p>
+            <ul>
+                {% for bullet in product_bullets %}
+                <li>{{bullet}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

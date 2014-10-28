@@ -1,8 +1,10 @@
-from django.shortcuts import render
+# from django.shortcuts import render
+from django.views.generic import DetailView
+
+from catalogue.models import Product
 
 # Create your views here.
 
 
-def index(request):
-    context = {}
-    return render(request, 'remesa/index.html', context)
+class ProductDetailView(DetailView):
+    model = Product

@@ -3,6 +3,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 
+import catalogue.urls
+
 urlpatterns = patterns(
     '',
     # Examples:
@@ -11,6 +13,7 @@ urlpatterns = patterns(
     url(r'^$', 'remesa.views.home', name='home'),
     url(r'^products/', 'remesa.views.products', name='products'),
     url(r'^caja/', 'remesa.views.caja', name='caja'),
+    url(r'^catalogue/', include(catalogue.urls, namespace='catalogue')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

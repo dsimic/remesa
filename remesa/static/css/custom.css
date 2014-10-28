@@ -40,4 +40,17 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Remesa stuff */
 
+.product-instock {
+    display: inline-block;
+    color: green;
+    font-size: large;
+}
+
+.product-price {
+    display: inline-block;
+    color: darkred;
+    font-size: large;
+    font-weight: bold;
+}

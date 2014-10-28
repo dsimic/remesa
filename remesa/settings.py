@@ -98,6 +98,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
+    # remesa
+    'remesa.context_processors.remesa',
 )
 
 # django registration
@@ -105,3 +107,5 @@ ACCOUNT_ACTIVATION_DAYS = 7
 
 # site id
 SITE_ID = 1
+
+STORE_NAME = "Remesa"
