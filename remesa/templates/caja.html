@@ -3,28 +3,15 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <h1>Productos</h1>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="sidebar-nav">
-                <div class="well">
-                    <ul class="nav">
-                        <li class="nav-header">Categories</li>
-                        <li class="active"><a href="#">All Products</a></li>
-                        <li><a href="#">Fine Produce</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
+        <div class="col-md-12">
+            <h1>Mi Caja</h1>
             <div class="well">
                 {% for product in products %}
                     {% if forloop.first %}
                         <div class="row">
                     {% endif %}
                         <div class="col-md-4">
-                            {% include 'product.html' %}
+                            {% include 'cart_product.html' %}
                         </div>
                     {% if forloop.counter|divisibleby:3 %}
                         </div>

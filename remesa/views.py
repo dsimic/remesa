@@ -20,3 +20,12 @@ def products(request):
     return render_to_response(
         'catalogue.html',
         context_instance=RequestContext(request, context))
+
+
+def caja(request):
+    context = {
+        'products': Product.objects.all()
+    }
+    return render_to_response(
+        'caja.html',
+        context_instance=RequestContext(request, context))

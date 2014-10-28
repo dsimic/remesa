@@ -36,8 +36,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # registration
+    'django.contrib.sites',
+    'registration',
     # local apps
     'catalogue',
+    'cart',
     'remesa',
 )
 
@@ -87,8 +91,6 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
@@ -97,3 +99,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
 )
+
+# django registration
+ACCOUNT_ACTIVATION_DAYS = 7
