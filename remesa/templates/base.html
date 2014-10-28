@@ -45,6 +45,33 @@
                    <li>
                    <a href="{% url 'caja' %}">Mi Caja</a>
                    </li>
+                   <li class="dropdown">
+                       {% if user.is_authenticated %}
+                       <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Your Account
+                           <span class="caret"></span>
+                       </a>
+                       {% else %}
+                       <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Sign In
+                           <span class="caret"></span>
+                       </a>
+                       {% endif %}
+                       <ul class="dropdown-menu" role="menu">
+                           {% if not user.is_authenticated %}
+                           <li><a href="#">Sign In</a></li>
+                           <li><a href="#">New Customer</a></li>
+                           <li class="divider"></li>
+                           {% endif %}
+                           <li class="dropdown-header">Your Account</li>
+                           <li><a href="#">Account</a></li>
+                           <li><a href="#">Orders</a></li>
+                           {% if user.is_authenticated %}
+                           <li class="divider"></li>
+                           <li><a href="#">Not {{user.first_name}}? Sign Out</a></li>
+                           {% endif %}
+                       </ul>
+                   </li>
                </ul>
             </div> <!-- navbar-collapse -->
         </div> <!-- contiainer fluid -->
