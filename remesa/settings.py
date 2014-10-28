@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     # registration
     'django.contrib.sites',
     'registration',
+    # 3rd party random
+    'bootstrapform',
     # local apps
     'catalogue',
     'cart',
@@ -108,4 +110,4 @@ ACCOUNT_ACTIVATION_DAYS = 7
 # site id
 SITE_ID = 1
 
-STORE_NAME = "Remesa"
+STORE_NAME = "LaRemesa"

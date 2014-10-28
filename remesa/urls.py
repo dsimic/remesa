@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib import admin
 
 import catalogue.urls
+import cart.urls
 
 urlpatterns = patterns(
     '',
@@ -14,6 +15,7 @@ urlpatterns = patterns(
     url(r'^products/', 'remesa.views.products', name='products'),
     url(r'^caja/', 'remesa.views.caja', name='caja'),
     url(r'^catalogue/', include(catalogue.urls, namespace='catalogue')),
+    url(r'^cart/', include(cart.urls, namespace='cart')),
     url(r'^admin/', include(admin.site.urls)),
 )
 
