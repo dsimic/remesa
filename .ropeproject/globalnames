@@ -1,10 +1,10 @@
-€}q(U+cart.migrations.0003_cartitem_deliver_every]qU	MigrationqaU'cart.migrations.0002_auto_20141028_1759]qhaU,catalogue.migrations.0003_auto_20141027_1936]qhaU
-cart.forms]qUCartItemFormqaUremesa.wsgi]qUapplicationq	aUcatalogue.tests]Ucart.models]q
-(UCartqUCartItemqeUcart.migrations.0001_initial]qhaUcatalogue.admin]Ushutil]q(UcopyfileqUignore_patternsqUcopytreeqUget_archive_formatsqUcopyfileobjqUregister_archive_formatqUcopymodeqUmake_archiveqUmoveqUunregister_archive_formatqUrmtreeqUErrorqUcopyqU	ExecErrorqUcopy2qUSpecialFileErrorqUcopystatqUWindowsErrorq eUremesa.context_processors]q!Uremesaq"aUremesa.settings]q#(U	DATABASESq$USITE_IDq%U
-STORE_NAMEq&ULANGUAGE_CODEq'UUSE_I18Nq(U
-SECRET_KEYq)UMIDDLEWARE_CLASSESq*UACCOUNT_ACTIVATION_DAYSq+U	TIME_ZONEq,UWSGI_APPLICATIONq-UALLOWED_HOSTSq.UBASE_DIRq/U
-STATIC_URLq0UUSE_L10Nq1UDEBUGq2UUSE_TZq3UINSTALLED_APPSq4UROOT_URLCONFq5UTEMPLATE_DEBUGq6UTEMPLATE_CONTEXT_PROCESSORSq7U	MEDIA_URLq8eUcatalogue.urls]q9Uurlpatternsq:aU	catalogue]U
-cart.views]Uremesa.urls]q;h:aUmanage]Ucart]Ucatalogue.models]q<(UProductq=U	Catalogueq>UFeaturedProductq?UCatalogueCategoryq@eUcatalogue.migrations]Ucatalogue.views]qAUProductDetailViewqBaU
-cart.tests]U!catalogue.migrations.0001_initial]qChaUremesa]U,catalogue.migrations.0002_auto_20141027_1932]qDhaUremesa.views]qE(UproductsqFUcajaqGUhomeqHeU
-cart.admin]Ucart.migrations]Uos]qI(Upopen4qJUexecleqKUpopen3qLUSEEK_CURqMUspawnlpqNUexeclpqOUenvironqPUspawnvpqQUspawnlqRUexecvpqSUmakedirsqTUlinesepqUUP_WAITqVUspawnvqWUspawnveqXUexecvpeqYUunsetenvqZUSEEK_SETq[Ugetenvq\Upopen2q]Uwalkq^Uspawnleq_Uexeclq`UnameqaUSEEK_ENDqbUspawnlpeqcU	P_NOWAITOqdUP_NOWAITqeU
-removedirsqfUrenamesqgUspawnvpeqhUexeclpeqieu.
+€}q(U'cart.migrations.0005_auto_20141028_1817]qU	MigrationqaU+cart.migrations.0003_cartitem_deliver_every]qhaU'cart.migrations.0002_auto_20141028_1759]qhaU,catalogue.migrations.0003_auto_20141027_1936]qhaU
+cart.forms]qUCartItemFormqaUremesa.wsgi]q	Uapplicationq
+aUcatalogue.tests]U'cart.migrations.0004_auto_20141028_1815]qhaUcart.models]q(UCartqUCartItemqeUcart.migrations.0001_initial]qhaUshutil]q(UcopyfileqUignore_patternsqUcopytreeqUget_archive_formatsqUcopyfileobjqUregister_archive_formatqUcopymodeqUmake_archiveqUmoveqUunregister_archive_formatqUrmtreeqUErrorqUcopyqU	ExecErrorqUcopy2qUSpecialFileErrorq Ucopystatq!UWindowsErrorq"eUcatalogue.admin]Uremesa.context_processors]q#Uremesaq$aUremesa.settings]q%(U	DATABASESq&USITE_IDq'U
+STORE_NAMEq(ULANGUAGE_CODEq)UUSE_I18Nq*U
+SECRET_KEYq+UMIDDLEWARE_CLASSESq,UACCOUNT_ACTIVATION_DAYSq-U	TIME_ZONEq.UWSGI_APPLICATIONq/UALLOWED_HOSTSq0UBASE_DIRq1U
+STATIC_URLq2UUSE_L10Nq3UDEBUGq4UUSE_TZq5UINSTALLED_APPSq6UROOT_URLCONFq7UTEMPLATE_DEBUGq8UTEMPLATE_CONTEXT_PROCESSORSq9U	MEDIA_URLq:eUcatalogue.urls]q;Uurlpatternsq<aU	catalogue]U
+cart.views]q=(Uadd_to_cartq>U	new_itemsq?eUremesa.urls]q@h<aUmanage]Uremesa.templatetags]Ucart]Ucatalogue.models]qA(UProductqBU	CatalogueqCUFeaturedProductqDUCatalogueCategoryqEeUcatalogue.migrations]Ucart.signals]qFUcreate_cartqGaUcatalogue.views]qHUProductDetailViewqIaU
+cart.tests]U!catalogue.migrations.0001_initial]qJhaUremesa]U,catalogue.migrations.0002_auto_20141027_1932]qKhaUremesa.templatetags.filters]qL(UregisterqMUaddcssqNeUremesa.views]qO(UproductsqPUcajaqQUhomeqReU
+cart.admin]Ucart.migrations]U	cart.urls]qSh<aUos]qT(Upopen4qUUexecleqVUpopen3qWUSEEK_CURqXUspawnlpqYUexeclpqZUenvironq[Uspawnvpq\Uspawnlq]Uexecvpq^Umakedirsq_Ulinesepq`UP_WAITqaUspawnvqbUspawnveqcUexecvpeqdUunsetenvqeUSEEK_SETqfUgetenvqgUpopen2qhUwalkqiUspawnleqjUexeclqkUnameqlUSEEK_ENDqmUspawnlpeqnU	P_NOWAITOqoUP_NOWAITqpU
+removedirsqqUrenamesqrUspawnvpeqsUexeclpeqteu.
