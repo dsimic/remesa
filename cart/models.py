@@ -7,10 +7,13 @@ from catalogue.models import Product
 
 
 class Cart(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, blank=True, null=True)
 
     def __unicode__(self):
-        return str(self.user) + "'s cart"
+        if self.user is None:
+            return "Anonymous's cart"
+        else:
+            return str(self.user) + "'s cart"
 
     def add_item(self, product=None, qty=None):
         return
@@ -35,3 +38,14 @@ class CartItem(models.Model):
     qty = models.IntegerField(default=1, choices=QUANTITY)
     deliver_every = models.CharField(max_length=150, choices=DELIVERY_EVERY,
                                      default=MONTHLY)
+
+    def __unicode__(self):
+        return str(self.product)
+
+    @classmethod
+    def from_data(cls, cart=None, data={}):
+        return cls(
+            cart=cart,
+            product=Product.objects.get(pk=data['product_pk']),
+            qty=data['qty'],
+            deliver_every=data['deliver_every'])

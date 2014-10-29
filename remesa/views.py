@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from catalogue.models import FeaturedProduct, Product
+from cart.models import Cart, CartItem
 
 
 def home(request):
@@ -23,9 +24,21 @@ def products(request):
 
 
 def caja(request):
+    user = request.user
+    if user.is_authenticated():
+        cart = Cart.objects.get(user=user)
+    else:
+        cart_pk = request.session.get("cart_pk", None)
+        if cart_pk is None:
+            cart = Cart(user=None)
+            cart.save()
+        else:
+            cart = Cart.objects.get(pk=cart_pk)
+        request.session["cart_pk"] = cart.pk
     context = {
-        'products': Product.objects.all()
+        'products': CartItem.objects.all().filter(cart_id=cart.id)
     }
+    print context
     return render_to_response(
         'caja.html',
         context_instance=RequestContext(request, context))

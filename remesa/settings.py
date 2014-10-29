@@ -107,6 +107,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # django registration
 ACCOUNT_ACTIVATION_DAYS = 7
 
+LOGIN_REDIRECT_URL = '/'
+
 # site id
 SITE_ID = 1
 

@@ -17,6 +17,8 @@ urlpatterns = patterns(
     url(r'^catalogue/', include(catalogue.urls, namespace='catalogue')),
     url(r'^cart/', include(cart.urls, namespace='cart')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/',
+        include('registration.backends.default.urls', namespace='accounts')),
 )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

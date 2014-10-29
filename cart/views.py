@@ -4,30 +4,45 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 
 from cart.forms import CartItemForm
-from cart.models import Cart
-from catalogue.models import Product
+from cart.models import Cart, CartItem
 
 # Create your views here.
 
 
 def add_to_cart(request, pk):
     user = request.user
-    cart = Cart.objects.get(user=user.id)
-    product = Product.objects.get(pk=pk)
     if request.method == "POST":
         form = CartItemForm(request.POST)
         if form.is_valid():
-            cart.add_item(product=product, qty=form.data['qty'])
-            request.session['new_items_context'] = \
-                {"product": product.id, "data": form.data}
-            return HttpResponseRedirect(
-                reverse("cart:new_items"))
+            new_item_data = {'product_pk': pk, 'added': False}
+            new_item_data = dict(new_item_data.items() +
+                                 form.cleaned_data.items())
+            request.session['new_item_data'] = new_item_data
+    if user.is_authenticated():
+        cart = Cart.objects.get(user=user.id)
+    else:
+        cart_pk = request.session.get('cart_pk', None)
+        if cart_pk is None:
+            cart = Cart(user=None)
+            cart.save()
+        else:
+            cart = Cart.objects.get(pk=cart_pk)
+        request.session['cart_pk'] = cart.pk
+    data = request.session['new_item_data']
+    if not data['added']:
+        cart_item = CartItem.from_data(cart=cart, data=data)
+        cart_item.save()
+        print "added ", cart_item, "to", cart
+        request.session['new_item_data']['added'] = True
+        request.session['new_item_data']['cart_item_pk'] = cart_item.pk
     return HttpResponseRedirect(
-        reverse("catalogue:product_detail", args=(product.id)))
+        reverse("cart:new_items"))
 
 
 def new_items(request):
-    context = request.session.get('new_items_context', {})
+    context = {
+        "cart_item": CartItem.objects.get(
+            pk=request.session['new_item_data']['cart_item_pk'])}
     return render_to_response(
         "cart/new_items.html",
         context_instance=RequestContext(request, context))
