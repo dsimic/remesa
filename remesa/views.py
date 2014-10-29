@@ -36,7 +36,7 @@ def caja(request):
             cart = Cart.objects.get(pk=cart_pk)
         request.session["cart_pk"] = cart.pk
     context = {
-        'products': CartItem.objects.all().filter(cart_id=cart.id)
+        'cart_items': CartItem.objects.all().filter(cart_id=cart.id)
     }
     print context
     return render_to_response(

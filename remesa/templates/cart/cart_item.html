@@ -1,0 +1,18 @@
+    <div class="row">
+       <a href="">
+           <img class="img-responsive" src="{{cart_item.product.photo.url}}"
+           alt="Responsive image" style="max-width: 100px"></img>
+       </a>
+    </div>
+    <div class="row">
+        <p><big><strong><a href="">{{cart_item.product.name}}</a></strong></big></p>
+    </div>
+    <div class="row">
+        <p><strong>Price: <strong style="color:darkred">${{cart_item.product.price_in_cop}}.000 COP</strong></p>
+    </div>
+    <div class="row">
+        <p><strong>Quantity: {{cart_item.qty}}</strong>{{ form }}</p>
+    </div>
+    <div class="row">
+        <p><strong>Frecuency: {{cart_item.deliver_every}}</strong>{{ form }}</p>
+    </div>
