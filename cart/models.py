@@ -22,6 +22,7 @@ class Cart(models.Model):
 class CartItem(models.Model):
     MONTHLY = "1M"
     DELIVERY_EVERY = (
+        ("1T", "One time order"),
         ("W", "1 week"),
         ("2W", "2 weeks"),
         ("3W", "3 weeks"),
