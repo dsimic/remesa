@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     # 3rd party random
     'bootstrapform',
     # local apps
+    'customer',
     'catalogue',
     'cart',
     'remesa',
