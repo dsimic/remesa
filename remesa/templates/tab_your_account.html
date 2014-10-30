@@ -11,8 +11,8 @@
 {% endif %}
 <ul class="dropdown-menu" role="menu">
     {% if not user.is_authenticated %}
-    <li><a href="{% url 'auth_login' %}">Sign In</a></li>
-    <li><a href="{% url 'registration_register' %}">New Customer</a></li>
+    <li><a href="{% url 'account_login' %}">Sign In</a></li>
+    <li><a href="{% url 'account_signup' %}">New Customer</a></li>
     <li class="divider"></li>
     {% endif %}
     <li class="dropdown-header" style="font-size: 18px;
@@ -21,6 +21,6 @@
     <li><a href="#">Orders</a></li>
     {% if user.is_authenticated %}
     <li class="divider"></li>
-    <li><a href="{% url 'auth_logout' %}">Not {{user.first_name}}? Sign Out</a></li>
+    <li><a href="{% url 'account_logout' %}">Not {{user.first_name}}? Sign Out</a></li>
     {% endif %}
 </ul>
