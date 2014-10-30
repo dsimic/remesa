@@ -38,7 +38,12 @@ def caja(request):
     context = {
         'cart_items': CartItem.objects.all().filter(cart_id=cart.id)
     }
-    print context
     return render_to_response(
         'caja.html',
         context_instance=RequestContext(request, context))
+
+
+def partners(request):
+    return render_to_response(
+        'partners.html',
+        context_instance=RequestContext(request, {}))
