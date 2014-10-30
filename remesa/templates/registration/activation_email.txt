@@ -1,7 +1,7 @@
-Hello!
+Hello {{user}}!
 
 Please follow to link below to activate your account.
 
-{{ url }}
+http://{{site}}/activate/{{activation_key}}/
 
-{{STORE_NAME}}
+-{{STORE_NAME}}

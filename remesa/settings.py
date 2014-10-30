@@ -113,3 +113,7 @@ LOGIN_REDIRECT_URL = '/'
 SITE_ID = 1
 
 STORE_NAME = "LaRemesa"
+
+# email config
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
