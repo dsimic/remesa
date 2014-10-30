@@ -1,0 +1,7 @@
+Hello!
+
+Please follow to link below to activate your account.
+
+{{ url }}
+
+{{STORE_NAME}}

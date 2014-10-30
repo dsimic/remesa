@@ -1,7 +1,34 @@
-<p>Welcome!</p>
+{% extends 'base.html' %}
 
-<p>Register:</p>
+{% block content %}
 
-<table>
-    {{form}}
-</table>
+
+<div class="container-fluid">
+    <h3>Registration</h3>
+    
+    <p>New to {{STORE_NAME}}? Register below.</p>
+    
+    <div class="col-md-5">
+        <div class="well">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="controls">
+                            <table>
+                            {{ form }}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-warning btn-block">Create
+                account</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+</div>
+
