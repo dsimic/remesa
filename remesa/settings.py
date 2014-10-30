@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     # 3rd party random
     'bootstrapform',
     # local apps
-    'customer',
+    'accounts',
     'catalogue',
     'cart',
     'remesa',
@@ -118,3 +118,7 @@ STORE_NAME = "LaRemesa"
 # email config
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# custom user model
+
+AUTH_USER_MODEL = 'accounts.User'

@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+
+from django.conf import settings
 
 from catalogue.models import Product
 
@@ -7,7 +8,7 @@ from catalogue.models import Product
 
 
 class Cart(models.Model):
-    user = models.ForeignKey(User, blank=True, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
 
     def __unicode__(self):
         if self.user is None:
