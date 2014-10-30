@@ -55,3 +55,6 @@ target/
 
 # sqlite3 dbs
 *.sqlite3
+
+# media folder
+media
