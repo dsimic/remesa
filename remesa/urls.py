@@ -13,7 +13,6 @@ urlpatterns = patterns(
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', 'remesa.views.home', name='home'),
     url(r'^products/', 'remesa.views.products', name='products'),
-    url(r'^caja/', 'remesa.views.caja', name='caja'),
     url(r'^partners/', 'remesa.views.partners', name='partners'),
     url(r'^catalogue/', include(catalogue.urls, namespace='catalogue')),
     url(r'^cart/', include(cart.urls, namespace='cart')),

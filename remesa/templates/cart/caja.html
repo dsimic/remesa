@@ -3,8 +3,8 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-            <h1>Mi Caja</h1>
+        <h1>Mi Caja</h1>
+        <div class="col-md-8">
             <div class="well">
                 {% if cart_items %}
                     {% for cart_item in cart_items %}
@@ -25,6 +25,15 @@
                 {% else %}
                 <p>Your caja is empty.</p>
                 {% endif %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well">
+                <p style="font-weight: bold; font-size: large">
+                Subtotal ({{ cart.total_qty }} item{% if cart.total_qty > 1 %}s{%endif %}):
+                <span class="cart-subtotal">${{cart.subtotal}} COP</span></p>
+                    <button type="submit" class="btn btn-warning
+                        btn-block">Proceed to checkout</button>
             </div>
         </div>
     </div>

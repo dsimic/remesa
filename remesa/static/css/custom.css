@@ -54,3 +54,10 @@ body {
     font-size: large;
     font-weight: bold;
 }
+
+.cart-subtotal {
+    display: inline-block;
+    color: darkred;
+    font-size: large;
+    font-weight: bold;
+}

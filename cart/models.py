@@ -19,6 +19,15 @@ class Cart(models.Model):
     def add_item(self, product=None, qty=None):
         return
 
+    def total_qty(self):
+        cart_items = CartItem.objects.filter(cart_id=self.id)
+        return sum([ item.qty for item in cart_items])
+
+    def subtotal(self):
+        cart_items = CartItem.objects.filter(cart_id=self.id)
+        subtotal = sum([item.price_in_cop() for item in cart_items])
+        return "{:10.3f}".format(subtotal)
+
 
 class CartItem(models.Model):
     MONTHLY = "1M"
@@ -43,6 +52,9 @@ class CartItem(models.Model):
 
     def __unicode__(self):
         return str(self.product)
+
+    def price_in_cop(self):
+        return self.qty * self.product.price_in_cop
 
     @classmethod
     def from_data(cls, cart=None, data={}):

@@ -19,3 +19,6 @@
     <div class="row">
         <p><strong>Frecuency: {{cart_item.deliver_every}}</strong>{{ form }}</p>
     </div>
+    <div class="row">
+        <p><a href="{% url 'cart:delete_item' cart_item.id %}">Delete</a></strong></p>
+    </div>

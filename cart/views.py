@@ -9,6 +9,27 @@ from cart.models import Cart, CartItem
 # Create your views here.
 
 
+def cart(request):
+    user = request.user
+    if user.is_authenticated():
+        cart = Cart.objects.get(user=user)
+    else:
+        cart_pk = request.session.get("cart_pk", None)
+        if cart_pk is None:
+            cart = Cart(user=None)
+            cart.save()
+        else:
+            cart = Cart.objects.get(pk=cart_pk)
+        request.session["cart_pk"] = cart.pk
+    context = {
+        'cart': cart,
+        'cart_items': CartItem.objects.all().filter(cart_id=cart.id)
+    }
+    return render_to_response(
+        'cart/caja.html',
+        context_instance=RequestContext(request, context))
+
+
 def add_to_cart(request, pk):
     user = request.user
     if request.method == "POST":
@@ -46,3 +67,14 @@ def new_items(request):
     return render_to_response(
         "cart/new_items.html",
         context_instance=RequestContext(request, context))
+
+
+def delete_item(request, pk):
+    cart_item = CartItem.objects.get(pk=pk)
+    if cart_item.cart.user.id == request.user.id:
+        print "deleting"
+        cart_item.delete()
+    else:
+        print request.user, cart_item.cart.user
+    return HttpResponseRedirect(
+        reverse("cart:cart"))
