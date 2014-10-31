@@ -13,15 +13,6 @@ def home(request):
         context_instance=RequestContext(request, context))
 
 
-def products(request):
-    context = {
-        'products': Product.objects.all()
-    }
-    return render_to_response(
-        'catalogue.html',
-        context_instance=RequestContext(request, context))
-
-
 def delivery_info(request):
     return render_to_response(
         'delivery_info.html',

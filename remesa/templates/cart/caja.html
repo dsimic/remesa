@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h1>Mi Caja</h1>
+            <h1>Mi Cajas</h1>
         </div>
     </div>
     <div class="row">
@@ -22,7 +22,7 @@
                 </div> <!--- row -->
                 <div class="tab-content">
                     <div id="all_items" class="tab-pane fade in active">
-                    {% if cart.cart_groups %}
+                    {% if not cart.is_empty %}
                         {% for period, cart_items in cart.cart_groups %}
                             <div class="row">
                                 <h4 class="text-muted">{{period}} Subscriptions</h4>
@@ -40,14 +40,17 @@
                             </div>
                         {% endfor %}
                     {% else %}
-                    <p>Your caja is empty.</p>
+                    <div class="row">
+                        <p class="text-muted">Your caja is empty.</p>
+                    </div>
                     {% endif %}
                     </div>
                     <div id="scheduled_cajas" class="tab-pane fade">
-                        {% if cart.cajas %}
+                        {% if not cart.is_empty %}
                             {% for caja in cart.cajas %}
                                 <div class="row">
-                                    <h4 class="text-muted">Caja arriving
+                                    <h4 class="text-muted">Caja
+                                        #{{forloop.counter}} arriving on
                                         {{caja.delivery_date}}</h4>
                                     <hr>
                                 </div>

@@ -9,4 +9,6 @@ urlpatterns = patterns(
     # url(r'^blog/', include('blog.urls')),
     url(r'^(?P<pk>\d+)/$', ProductDetailView.as_view(),
         name="product_detail"),
+    url(r'^$', 'catalogue.views.catalogue', name='catalogue'),
+
 )

@@ -18,6 +18,9 @@ class Cart(models.Model):
         else:
             return str(self.user) + "'s cart"
 
+    def is_empty(self):
+        return len(self.cart_items.all()) == 0
+
     def cajas(self):
         return [self, self]
 
