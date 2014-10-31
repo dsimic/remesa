@@ -23,7 +23,6 @@ def cart(request):
         request.session["cart_pk"] = cart.pk
     context = {
         'cart': cart,
-        'cart_items': CartItem.objects.all().filter(cart_id=cart.id)
     }
     return render_to_response(
         'cart/caja.html',

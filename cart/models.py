@@ -2,6 +2,8 @@ from django.db import models
 
 from django.conf import settings
 
+import datetime as dt
+
 from catalogue.models import Product
 
 # Create your models here.
@@ -16,15 +18,32 @@ class Cart(models.Model):
         else:
             return str(self.user) + "'s cart"
 
+    def cajas(self):
+        return [self, self]
+
+    def delivery_date(self):
+        return (dt.datetime.today() + dt.timedelta(days=7)).date()
+
+    def cart_groups(self):
+        return [("Weekly", self.cart_items_weekly),
+                ("Monthly", self.cart_items_monthly),
+                ]
+
+    def cart_items_weekly(self):
+        return self.cart_items.filter(deliver_every="1W")
+
+    def cart_items_monthly(self):
+        return self.cart_items.filter(deliver_every="1M")
+
     def add_item(self, product=None, qty=None):
         return
 
     def total_qty(self):
-        cart_items = CartItem.objects.filter(cart_id=self.id)
-        return sum([ item.qty for item in cart_items])
+        cart_items = self.cart_items.all()
+        return sum([item.qty for item in cart_items])
 
     def subtotal(self):
-        cart_items = CartItem.objects.filter(cart_id=self.id)
+        cart_items = self.cart_items.all()
         subtotal = sum([item.price_in_cop() for item in cart_items])
         return "{:10.3f}".format(subtotal)
 

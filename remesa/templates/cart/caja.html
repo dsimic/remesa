@@ -12,33 +12,63 @@
             <div class="container-fluid">
                 <div class="row" style="margin-bottom: 20px">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="">
-                                <a href="#">All Items</a>
+                            <li role="presentation" class="active">
+                                <a data-toggle='tab' href="#all_items">All Items</a>
                             </li>
                             <li>
-                                <a href="#">Scheduled Boxes</a>
+                                <a data-toggle='tab' href="#scheduled_cajas">Scheduled Cajas</a>
                             </li>
                         </ul>
                 </div> <!--- row -->
-                {% if cart_items %}
-                    {% for cart_item in cart_items %}
-                        {% if forloop.first %}
+                <div class="tab-content">
+                    <div id="all_items" class="tab-pane fade in active">
+                    {% if cart.cart_groups %}
+                        {% for period, cart_items in cart.cart_groups %}
                             <div class="row">
-                        {% endif %}
-                            <div class="col-md-3">
-                                {% include 'cart/cart_item.html' %}
+                                <h4 class="text-muted">{{period}} Subscriptions</h4>
+                                <hr>
                             </div>
-                        {% if forloop.counter|divisibleby:3 %}
+                            <div class="row">
+                            {% for cart_item in cart_items %}
+                                <div class="col-md-3">
+                                    {% include 'cart/cart_item.html' %}
+                                </div>
+                            {% endfor %}
                             </div>
-                            <div class='row'>
-                        {% endif %}
-                        {% if forloop.last %}
+                            <div class="row">
+                                <hr>
                             </div>
+                        {% endfor %}
+                    {% else %}
+                    <p>Your caja is empty.</p>
+                    {% endif %}
+                    </div>
+                    <div id="scheduled_cajas" class="tab-pane fade">
+                        {% if cart.cajas %}
+                            {% for caja in cart.cajas %}
+                                <div class="row">
+                                    <h4 class="text-muted">To be delivered on
+                                        {{caja.delivery_date}}</h4>
+                                    <hr>
+                                </div>
+                                <div class="row">
+                                {% for cart_item in caja.cart_items.all %}
+                                    <div class="col-md-3">
+                                        {% include 'cart/cart_item.html' %}
+                                    </div>
+                                {% endfor %}
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                        <div class="row">
+                            <p class="text-muted">You have no scheduled cajas.</p>
+                        </div>
                         {% endif %}
-                    {% endfor %}
-                {% else %}
-                <p>Your caja is empty.</p>
-                {% endif %}
+                    </div>
+                </div>
             </div><!-- continer-fluid -->
         </div> <!-- col-md-8 -->
         <div class="col-md-4">
