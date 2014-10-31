@@ -12,6 +12,7 @@ urlpatterns = patterns(
     # url(r'^$', 'remesa.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', 'remesa.views.home', name='home'),
+    url(r'^delivery_info/', 'remesa.views.delivery_info', name='delivery_info'),
     url(r'^products/', 'remesa.views.products', name='products'),
     url(r'^partners/', 'remesa.views.partners', name='partners'),
     url(r'^catalogue/', include(catalogue.urls, namespace='catalogue')),
@@ -19,6 +20,8 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/',
         include('allauth.urls')),
+    url(r'^manage/',
+        include('accounts.urls', namespace='manage')),
 )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

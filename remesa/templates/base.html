@@ -25,9 +25,10 @@
 
 <body role="document">
 <div class="container">
-    <div role="navigation" class="navbar navbar-default">
-        <div class="container-fluid">
+    <nav role="navigation" class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid navbar-inner">
             <div class="navbar-header">
+                <a href="/" class="navbar-brand">{{STORE_NAME}}</a>
                 <button type="button" class="navbar-toggle collapsed" 
                     data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -35,26 +36,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">{{STORE_NAME}}</a>
             </div> <!-- navbar-header -->
             <div class="navbar-collapse collapse">
-               <ul class="nav navbar-nav">
-                  <li>
-                   <a href="{% url 'products' %}">Productos</a>
-                   </li>
-                   <li>
-                   <a href="{% url 'cart:cart' %}">Mi Caja</a>
-                   </li>
-                   <li class="dropdown">
-                   {% include 'tab_your_account.html' %}
-                   </li>
-                   <li>
-                   {% include 'tab_partners.html' %}
-                   </li>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'delivery_info' %}">Delivery Info</a></li>
+                    <li>
+                        <a href="{% url 'products' %}">Productos</a>
+                    </li>
+                    <li class="dropdown">
+                        {% include 'tab_your_account.html' %}
+                    </li>
+                    <li><a href="{% url 'cart:cart' %}">Mi Caja</a></li>
                </ul>
             </div> <!-- navbar-collapse -->
         </div> <!-- contiainer fluid -->
-    </div> <!-- navigation -->
+        </div>
+    </nav> <!-- navigation -->
     <div class="container">
         {% block content %}{% endblock %}
         <div class="push"></div>

@@ -131,7 +131,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 # site id
 SITE_ID = 1
 
-STORE_NAME = "LaRemesa"
+STORE_NAME = "La Remesa"
 
 # email config
 if DEBUG:

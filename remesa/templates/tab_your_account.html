@@ -17,8 +17,8 @@
     {% endif %}
     <li class="dropdown-header" style="font-size: 18px;
     font-weight: bold; color: darkblue;">Your Account</li>
-    <li><a href="#">Account</a></li>
-    <li><a href="#">Orders</a></li>
+    <li><a href="{% url 'manage:account' %}">Account</a></li>
+    <li><a href="{% url 'manage:orders' %}">Orders</a></li>
     {% if user.is_authenticated %}
     <li class="divider"></li>
     <li><a href="{% url 'account_logout' %}">Not {{user.first_name}}? Sign Out</a></li>
